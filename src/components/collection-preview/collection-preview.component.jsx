@@ -7,10 +7,10 @@ return <div className='collection-preview'>
 <h1 className='title'>{title.toUpperCase()}</h1>
     <div className='preview'>
     {
-        items.filter((item, indx)=> indx < 4 ).map(({id, ...itemProps}) => 
+        items.filter((item, indx)=> indx < 4 ).map((item) => 
         
         (
-           <CollectionItem key={id} {...itemProps}/> 
+           <CollectionItem key={item.id} item={item}/> 
         )
         )
     }
