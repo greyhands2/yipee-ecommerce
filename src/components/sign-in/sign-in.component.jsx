@@ -56,7 +56,7 @@ render(){
         <CustomButton type='submit'>
         Sign In
         </CustomButton>
-        <CustomButton click={signInWithGoogle} isGoogleSignIn>
+        <CustomButton onClick={signInWithGoogle} isGoogleSignIn>
         Sign In With Google
         </CustomButton>
 
