@@ -65,7 +65,7 @@ class App extends React.Component{
         <Header />
         <Switch>
         <Route exact={true} path='/' component={HomePage} />
-        {/* because shop page is going to also be used as a nested route we cannot pass exact true in it */}
+        {/* because shop page is going to also be used as a nested route we cannot pass exact true in it since we could also have a shop/something */}
         <Route  path='/shop' component={ShopPage}/>
         <Route exact path='/checkout' component={CheckoutPage} />
         
