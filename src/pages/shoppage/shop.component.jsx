@@ -1,4 +1,4 @@
- import React from 'react';
+ import React, {useEffect} from 'react';
 
 //nested routing
 import {Route} from 'react-router-dom';
@@ -12,14 +12,14 @@ import CollectionsOverviewContainer from '../../components/collections-overview/
 
 import CollectionPageContainer from '../collection/collection.container';
 
-class ShopPage extends React.Component { 
+const ShopPage = ({match, fetchCollectionsStart}) => { 
  
-  componentDidMount(){
-    const { fetchCollectionsStart} = this.props;
+  useEffect(()=>{
+   
      fetchCollectionsStart();
-  }
-  render(){
-    const {match} = this.props;
+  }, [fetchCollectionsStart]);
+  
+    
     
     return (
         
@@ -33,7 +33,7 @@ class ShopPage extends React.Component {
 
             </div>
       )
-  }
+  
 
 
 }
