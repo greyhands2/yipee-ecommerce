@@ -26,12 +26,14 @@
     .quantity {
         
      display:flex;
+     
      .arrow{
          cursor: pointer;
          &:hover{
              color: #ec407a;
              
          }
+       
          
      }
      .value{
@@ -45,4 +47,27 @@
       padding-left: 12px;
       cursor: pointer;
     }
+
+    
+    @media screen and (max-width: 419px) {
+      font-size: 14px;
+   }
+
+   @media screen and (max-width: 519px) and (min-width: 420px){
+    font-size: 17px;
+   }
+
+
+   @media screen and (max-width: 619px) and (min-width: 520px){
+    font-size: 20px;
+   }
+   @media screen and (max-width: 719px) and (min-width: 620px){
+    font-size: 20px;
+   }
+
+
+   @media screen and (max-width: 819px) and (min-width: 720px){
+    font-size: 20px;
+   }
+   
   }

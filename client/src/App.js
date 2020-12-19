@@ -1,18 +1,22 @@
-import React, {useEffect} from 'react';
+ import React, {useEffect, lazy, Suspense} from 'react';
 import {Switch, Route, Redirect} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {createStructuredSelector} from 'reselect';
-import './App.css';
+
 import Header from './components/header/header.component';
-import HomePage from './pages/homepage/homepage.component';
-import ShopPage from './pages/shoppage/shop.component';
-import SignInAndSignUpPage from './pages/sign-in-and-sign-up/sign-in-and-sign-up.component';
-import CheckoutPage from './pages/checkout/checkout.component';
 
-
+import Spinner from './components/spinner/spinner.component';
 import {selectCurrentUser} from  './redux/user/user.selector'
 
 import {checkUserSession} from './redux/user/user.actions' 
+
+
+import {GlobalStyle} from './global.styles';
+
+const HomePage = lazy(() => import('./pages/homepage/homepage.component'));
+const ShopPage = lazy(() => import('./pages/shoppage/shop.component'));
+const SignInAndSignUpPage = lazy(() => import('./pages/sign-in-and-sign-up/sign-in-and-sign-up.component'));
+const CheckoutPage = lazy(() => import('./pages/checkout/checkout.component'));
 
 const App = ({userSession, currentUser}) => {
  
@@ -30,14 +34,19 @@ const App = ({userSession, currentUser}) => {
   
     return (
       <div>
+      <GlobalStyle />
         <Header />
         <Switch>
+        <Suspense fallback={<Spinner />}>
         <Route exact={true} path='/' component={HomePage} />
+        
+
         {/* because shop page is going to also be used as a nested route we cannot pass exact true in it since we could also have a shop/something */}
         <Route  path='/shop' component={ShopPage}/>
         <Route exact path='/checkout' component={CheckoutPage} />
         
         <Route exact={true} path='/login' render={()=> currentUser ? (<Redirect to='/'/>) : (<SignInAndSignUpPage />)}/>
+        </Suspense>
         </Switch>
       </div>
     )

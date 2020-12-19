@@ -22,8 +22,11 @@
         }
     }
   
-    & .large {
+    &.large {
         height: 380px;
+        @media screen and (max-width: 800px) {
+          height: 200px;
+       }
     }
 
     &:first-child {
@@ -52,26 +55,40 @@
       background-color: #fff;
       opacity: 0.7;
       border-radius: 10px;
-      padding : 15px;
+      
       position: absolute;
   
       .title {
         font-weight: bold;
-        margin-bottom: 0;
-        font-size: 30px;
-        font-family: 'Indie Flower';
+        margin: 0 6px 0;
+        font-size: 22px;
+        
         
   
       }
   
       .subtitle {
         font-weight: bold;
-        font-size: 18px;
+        font-size: 16px;
         color: #000;
         font-family: 'Open Sans Condensed';
-        bottom: 10px;
+        // bottom: 10px;
       }
+
+      @media screen and (max-width: 469px) and (min-width: 100px){
+        width: 30vw;
+       }
+
+      @media screen and (max-width: 519px) and (min-width: 470px){
+        width: 20vw;
+      }
+
+     
   
     }
+
+    @media screen and (max-width: 800px) {
+      height: 200px;
+   }
   
   }

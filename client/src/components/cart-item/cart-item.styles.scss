@@ -6,6 +6,27 @@
   
     img {
       width: 30%;
+
+      @media screen and (max-width: 419px) {
+        width: 30%;
+     }
+
+     @media screen and (max-width: 519px) and (min-width: 420px){
+        width: 20%;
+     }
+
+
+     @media screen and (max-width: 619px) and (min-width: 520px){
+        width: 10%;
+     }
+
+     @media screen and (max-width: 719px) and (min-width: 620px){
+        width: 10%;
+     }
+
+     @media screen and (max-width: 800px) and (min-width: 720px){
+        width: 10%;
+     }
     }
   
     .item-details {

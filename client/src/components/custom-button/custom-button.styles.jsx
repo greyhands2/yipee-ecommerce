@@ -40,17 +40,31 @@ const googleSignInStyles = css`
             border: none;
         }
 
+        @media screen and (max-width: 767px) {
+            width : 80vw;
+            margin-top: 15px;
+            margin-bottom:75px;
+        
+        }
 
+    
+
+     @media screen and (max-width: 1074px) and (min-width: 768px){
+        width : 30vw;
+        margin-top: 15px;
+        margin-bottom:75px;
+     }
+    
 
 `;
 
 const collectionButtonStyles = css`
 
-width: 80%;
-      opacity: 0.7;
-      position: absolute;
-      top: 255px;
-      display: none;
+    width: 80%;
+    opacity: 0.7;
+    position: absolute;
+    top: 255px;
+    display: none;
 
 `;
 
