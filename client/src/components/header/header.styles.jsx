@@ -13,7 +13,11 @@ export const HeaderContainer = styled.div`
     justify-content: space-between;
     margin-top: 0;
     margin-bottom: 20px;
-    
+    box-shadow: 0 0 11px rgba(33,33,33,.2);
+    border-radius: 30px;
+    &:hover {
+      box-shadow: 0 0 25px rgba(33,33,33,.2);
+    }
   ${'' /* position: fixed; */}
   
     @media screen and (max-width: 800px) {

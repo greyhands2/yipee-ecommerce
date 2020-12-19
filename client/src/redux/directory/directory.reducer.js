@@ -2,28 +2,28 @@ const INITIAL_STATE = {
     sections: [
         {
             title: 'hats',
-            imageUrl: 'https://i.ibb.co/cvpntL1/hats.png',
+            imageUrl: 'https://cdn.pixabay.com/photo/2016/05/17/22/16/baby-1399332__480.jpg',
             color: '#FF5733',
             id:1,
             linkUrl: 'shop/hats'
         },
         {
             title: 'jackets',
-            imageUrl: 'https://i.ibb.co/px2tCc3/jackets.png',
+            imageUrl: 'https://cdn.pixabay.com/photo/2018/03/01/14/57/portrait-3190851__480.jpg',
             color: '#2196f3',
             id:2,
             linkUrl: 'shop/jackets'
         },
         {
             title: 'sneakers',
-            imageUrl: 'https://i.ibb.co/0jqHpnp/sneakers.png',
+            imageUrl: 'https://cdn.pixabay.com/photo/2014/05/21/14/54/feet-349687__480.jpg',
             color: '#6200ea',
             id:3,
             linkUrl: 'shop/sneakers'
         },
         {
             title: 'womens',
-            imageUrl: 'https://i.ibb.co/GCCdy8t/womens.png',
+            imageUrl: 'https://cdn.pixabay.com/photo/2018/04/01/17/00/mother-and-daughter-3281388_1280.jpg',
             size: 'large',
             color: '#FF69B4',
             id:4,
@@ -31,7 +31,7 @@ const INITIAL_STATE = {
         },
         {
             title: 'mens',
-            imageUrl: 'https://i.ibb.co/R70vBrQ/men.png',
+            imageUrl: 'https://cdn.pixabay.com/photo/2015/03/26/09/41/tie-690084__480.jpg',
             size: 'large',
             color: '#e040fb',
             id:5,
