@@ -17,8 +17,8 @@ import './cart-item.styles.scss';
     </div>
 );
 
-
-export default CartItem;
+// this component isnt connect to reselect so any time  data changes in the cart every single cart item is re rendered, since it is a functional component we can use React.memo() wrapper to fix this and if it were a class component we could use PureComponent instead of Component
+export default React.memo(CartItem);
 
 
 
