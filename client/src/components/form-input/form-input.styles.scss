@@ -10,7 +10,9 @@ $main-color: black;
 .group {
     position: relative;
     margin : 45px 0;
-
+    display: flex;
+    justify-content: center;
+    align-items: center;
     .form-input {
         background: none;
         background-color: white;
@@ -25,7 +27,7 @@ $main-color: black;
         margin: 25px 0;
         -webkit-box-shadow: none;
         box-shadow: none;
-
+        justify-self: center;
 
 
         &:focus {
