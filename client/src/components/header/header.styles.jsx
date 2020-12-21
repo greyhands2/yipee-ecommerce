@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 
 const LinkStyles = css`
    text-decoration: none;
-
+   outline:0;
    &:focus, &:hover, &:visited, &:link, &:active {
    text-decoration: none;
 `;
