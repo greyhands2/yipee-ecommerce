@@ -1,10 +1,12 @@
 import styled, {css} from 'styled-components';
 import {Link} from 'react-router-dom';
 
-// const OptionContainerStyles = css`
-//     padding: 10px 15px;
-//     cursor: pointer;  
-// `;
+const LinkStyles = css`
+   text-decoration: none;
+
+   &:focus, &:hover, &:visited, &:link, &:active {
+   text-decoration: none;
+`;
 
 export const HeaderContainer = styled.div`
     height: 70px;
@@ -49,6 +51,7 @@ export const LogoContainer = styled(Link)`
     display: flex;
     justify-content: space-between;
     align-items: center;
+    ${LinkStyles}
 
     @media screen and (max-width: 800px) {
           width: 20px;
@@ -58,13 +61,13 @@ export const LogoContainer = styled(Link)`
     
 `;
 
-export const NameContainer = styled.div`
+export const NameContainer = styled(Link)`
 
     font-size: 30px;
     font-weight: 900;
     color: #FA663D;
     padding: 7px;
-    
+    ${LinkStyles}
 
     @media screen and (max-width: 349px) {
         font-size: 20px;
@@ -109,7 +112,7 @@ export const OptionLink = styled(Link)`
      font-weight: 900;
      font-size: 20px;
      color: #707b8f;
-
+     ${LinkStyles}
      &:hover{
          color: #ec407a;
      }
