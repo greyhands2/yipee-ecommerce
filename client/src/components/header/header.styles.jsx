@@ -6,7 +6,7 @@ const LinkStyles = css`
    outline:0 !important;
    &:focus, &:hover, &:visited, &:link, &:active {
       outline:0 !important;
-   text-decoration: none;
+      text-decoration: none;
    }
 `;
 
