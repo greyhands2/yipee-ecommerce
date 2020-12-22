@@ -3,10 +3,11 @@ import {Link} from 'react-router-dom';
 
 const LinkStyles = css`
    text-decoration: none;
-   outline:0;
+   outline:0 !important;
    &:focus, &:hover, &:visited, &:link, &:active {
-      outline: 0;
+      outline:0 !important;
    text-decoration: none;
+   }
 `;
 
 export const HeaderContainer = styled.div`
