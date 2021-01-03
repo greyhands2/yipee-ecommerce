@@ -25,6 +25,12 @@ export function* updateCartInFirebase() {
       }
     }
   }
+
+
+
+  export function* onUserSignIn() {
+    yield takeLatest(userActionTypes.SIGN_IN_SUCCESS, checkCartFromFirebase);
+  }
   
   export function* checkCartFromFirebase({ payload: user }) {
     const cartRef = yield getUserCartRef(user.id);
@@ -49,5 +55,5 @@ export function* onCartChange() {
   }
 
 export function* cartSagas(){
-    yield all([call(onSignOutSuccess)])
+  yield all([call(onSignOutSuccess), call(onCartChange), call(onUserSignIn)]);
 }
