@@ -5,10 +5,10 @@ export const GlobalStyle = createGlobalStyle`
 
     body {
         font-family: 'Open Sans Condensed';
-        padding: 20px 40px;
+        padding: 0 40px;
 
         @media screen and (max-width: 800px) {
-           padding: 10px; 
+           padding: 0 10px; 
         }
     }
 

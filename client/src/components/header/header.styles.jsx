@@ -11,20 +11,35 @@ const LinkStyles = css`
       outline-offset: none !important;
    }
 `;
+export const MainHeaderContainer = styled.div`
+
+    height: 90px;
+    width: 100%;
+    
+    position: sticky;
+    top: 0;
+    padding: 10px;
+    
+    z-index:1;
+    border-bottom: 1px solid #ffffff;
+    background-color: #ffffff;
+`;
 
 export const HeaderContainer = styled.div`
     height: 70px;
     width: 100%;
     display: flex;
     justify-content: space-between;
-    margin-top: 0;
+    
     margin-bottom: 20px;
     box-shadow: 0 0 11px rgba(33,33,33,.2);
     border-radius: 30px;
+    background-color: #ffffff;
+    
     &:hover {
       box-shadow: 0 0 25px rgba(33,33,33,.2);
     }
-  ${'' /* position: fixed; */}
+ 
   
     @media screen and (max-width: 800px) {
           height:60px;

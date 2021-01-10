@@ -1,5 +1,5 @@
 import React from 'react';
-import {HeaderContainer, LogoContainer, OptionLink, OptionsContainer, ImageStyles, NameContainer} from './header.styles';
+import {HeaderContainer, LogoContainer, OptionLink, OptionsContainer, ImageStyles, NameContainer, MainHeaderContainer} from './header.styles';
 
 
 import {connect} from 'react-redux';
@@ -15,7 +15,8 @@ import {selectCartHidden} from '../../redux/cart/cart.selectors';
 // import {ReactComponent as Logo} from '../../assets/crown.svg';
 
 const Header = ({currentUser, hidden, startSignOut}) =>(
-<HeaderContainer>
+    <MainHeaderContainer>
+    <HeaderContainer>
     <LogoContainer to="/">
         {/* <Logo className='logo'/> */}
         
@@ -52,6 +53,7 @@ const Header = ({currentUser, hidden, startSignOut}) =>(
     }
     
 </HeaderContainer>
+</MainHeaderContainer>
 );
 
 
