@@ -35,7 +35,8 @@ export const HeaderContainer = styled.div`
     box-shadow: 0 0 11px rgba(33,33,33,.2);
     border-radius: 30px;
     background-color: #ffffff;
-    
+    padding-left: 15px;
+    padding-right: 15px;
     &:hover {
       box-shadow: 0 0 25px rgba(33,33,33,.2);
     }
@@ -50,7 +51,14 @@ export const HeaderContainer = styled.div`
 
 export const ImageStyles = styled.img`
     height: 45px;
-
+    text-decoration: none;
+   outline:0 !important;
+   outline-offset: none !important;
+   &:focus, &:hover, &:visited, &:link, &:active {
+      outline:0 !important;
+      text-decoration: none;
+      outline-offset: none !important;
+   }
     @media screen and (max-width: 419px) {
         height: 30px;
      }
@@ -70,7 +78,14 @@ export const LogoContainer = styled(Link)`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    ${LinkStyles}
+    text-decoration: none;
+   outline:0 !important;
+   outline-offset: none !important;
+   &:focus, &:hover, &:visited, &:link, &:active {
+      outline:0 !important;
+      text-decoration: none;
+      outline-offset: none !important;
+   }
 
     @media screen and (max-width: 800px) {
           width: 20px;
@@ -86,7 +101,14 @@ export const NameContainer = styled(Link)`
     font-weight: 900;
     color: #FA663D;
     padding: 7px;
-    ${LinkStyles}
+    text-decoration: none;
+   outline:0 !important;
+   outline-offset: none !important;
+   &:focus, &:hover, &:visited, &:link, &:active {
+      outline:0 !important;
+      text-decoration: none;
+      outline-offset: none !important;
+   }
 
     @media screen and (max-width: 349px) {
         font-size: 20px;
@@ -131,7 +153,14 @@ export const OptionLink = styled(Link)`
      font-weight: 900;
      font-size: 20px;
      color: #707b8f;
-     ${LinkStyles}
+     text-decoration: none;
+   outline:0 !important;
+   outline-offset: none !important;
+   &:focus, &:hover, &:visited, &:link, &:active {
+      outline:0 !important;
+      text-decoration: none;
+      outline-offset: none !important;
+   }
      &:hover{
          color: #ec407a;
      }
