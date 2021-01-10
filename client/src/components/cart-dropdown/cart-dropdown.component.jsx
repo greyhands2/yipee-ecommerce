@@ -5,12 +5,13 @@ import {withRouter} from 'react-router-dom';
 
 
 import {selectCartItems} from '../../redux/cart/cart.selectors';
+import {selectCurrentUser} from '../../redux/user/user.selector';
 import CustomButton from '../custom-button/custom-button.component';
 import {toggleCartHidden} from '../../redux/cart/cart.actions';
 import './cart-dropdown.styles.scss';
 
 import CardItem from '../cart-item/cart-item.component';
-const CartDropdown = ({cartItems, history, dispatch}) =>(
+const CartDropdown = ({cartItems, history, dispatch, user}) =>(
     <div className='cart-dropdown'>
         <div className='cart-items'>
             {
@@ -22,13 +23,14 @@ const CartDropdown = ({cartItems, history, dispatch}) =>(
 
     <CustomButton onClick={()=>{
     dispatch(toggleCartHidden());    
-    history.push('/checkout');
+    user ? history.push('/checkout'): history.push('/login');
     }}>GO TO CHECKOUT</CustomButton>
     </div>
 );
 
 const mapStateToProps = createStructuredSelector({
-    cartItems: selectCartItems
+    cartItems: selectCartItems,
+    user: selectCurrentUser
 });
 //also not that whenever we do not pass a mapDispatchToProps to connect() it still passes a dispatch to props under scene so for the case of toggling the cart hidden we wanna do once we click goto checkout button we can still use dispatch implicitly passed to props by connect instead of having to create a mapDispatchToProps function explicitly, just another way of doing stuff here
 
