@@ -5,13 +5,14 @@ import FormInput from '../form-input/form-input.component';
 import CustomButton from '../custom-button/custom-button.component';
 
 import {googleSignInStart, emailSignInStart} from '../../redux/user/user.actions';
-const SignIn =({signInEmail, signInGoogle})=>{
+const SignIn =({signInEmail, signInGoogle,setLoading})=>{
     
    const [userCredentials, setUserCredentials] = useState({email: '', password: ''}); 
 
    const {email, password} = userCredentials;
     const handleSubmit = async (event) => {
         event.preventDefault();
+        setLoading(prev => !prev);
         signInEmail(email, password);
 
     }

@@ -7,7 +7,7 @@ import CustomButton from '../custom-button/custom-button.component';
 
 import {signUpStart} from '../../redux/user/user.actions';
 
-const SignUp = ({emailSignUpStart}) => {
+const SignUp = ({emailSignUpStart,setLoading}) => {
     const [userData, setUserData] = useState({
         displayName:'',
         email: '',
@@ -18,6 +18,7 @@ const SignUp = ({emailSignUpStart}) => {
     const handleSubmit = async (event)=>{
         
         event.preventDefault();
+        setLoading(prev => !prev);
         
         if(password !== confirmPassword){
             alert('passwords do not match');
