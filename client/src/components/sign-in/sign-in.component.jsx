@@ -16,6 +16,7 @@ const SignIn =({signInEmail, signInGoogle,startLoader})=>{
         event.preventDefault();
         startLoader(true);
         signInEmail(email, password);
+        
 
     }
 

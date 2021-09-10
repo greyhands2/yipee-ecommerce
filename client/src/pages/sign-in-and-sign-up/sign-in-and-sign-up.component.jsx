@@ -11,7 +11,7 @@ import Spinner from '../../components/spinner/spinner.component'
 const SignInAndSignUpPage = ({loading}) =>{
     
 
-    if(!!loading)   return  <Spinner />;
+    if(!!loading===true)   return  <Spinner />;
 
     else return <div className='sign-in-and-sign-up'>
         <SignIn />

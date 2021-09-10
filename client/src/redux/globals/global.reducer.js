@@ -41,9 +41,7 @@ const globalReducer = (state=initState, action) => {
             return {
                 ...state,
                 loading: false,
-                loaderMini:false,
-                error: {},
-                message: {},
+                loaderMini:false
             }    
 
         default:
