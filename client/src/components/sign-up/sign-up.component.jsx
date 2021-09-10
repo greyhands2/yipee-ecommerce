@@ -19,13 +19,13 @@ const SignUp = ({emailSignUpStart,startLoader}) => {
     const handleSubmit = async (event)=>{
         
         event.preventDefault();
-        startLoader(true);
+       
         
         if(password !== confirmPassword){
             alert('passwords do not match');
             return;
         }
-         
+        startLoader(true);
         emailSignUpStart({displayName, email, password});
        
     };

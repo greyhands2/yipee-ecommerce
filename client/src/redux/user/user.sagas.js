@@ -19,9 +19,9 @@ export function* getSnapshotFromUserAuth(userAuth, additionalData){
         
         const userSnapshot = yield userRef.get();
         //remember put() in saga replaces dispatch() in thunk
-        yield all[put(signInSuccess({ id: userSnapshot.id, ...userSnapshot.data() })), put(loaderRemove(false))];
+        yield all([put(signInSuccess({ id: userSnapshot.id, ...userSnapshot.data() })), put(loaderRemove(false))]);
     } catch(e){
-        yield all[put(signInFailure(e)), put(loaderRemove(false))];
+        yield all([put(signInFailure(e)), put(loaderRemove(false))]);
     }    
     
 }
@@ -32,7 +32,7 @@ export function* signInWithGoogle(){
        const {user} = yield auth.signInWithPopup(googleProvider);
       yield getSnapshotFromUserAuth(user);
     } catch(e){
-        yield all[put(signInFailure(e)), put(loaderRemove(false))]
+        yield all([put(signInFailure(e)), put(loaderRemove(false))])
     }
 }
 
@@ -43,7 +43,7 @@ export function* signInWithEmail({payload: {email, password}}){
 
         yield getSnapshotFromUserAuth(user);
     }   catch (e) {
-        yield all[put(signInFailure(e)), put(loaderRemove(false))];
+        yield all([put(signInFailure(e)), put(loaderRemove(false))]);
     }
 
 }
@@ -51,12 +51,12 @@ export function* signInWithEmail({payload: {email, password}}){
 export function* signUpWithEmail({payload:{displayName, email, password}}){
     try {
         const {user} = yield auth.createUserWithEmailAndPassword(email, password);
-        yield all[put(signUpSuccess({ user, additionalData: { displayName } })), put(loaderRemove(false))];
+        yield all([put(signUpSuccess({ user, additionalData: { displayName } })), put(loaderRemove(false))]);
         
         
 
     }catch(e){
-        yield all[put(signUpFailure(e)), put(loaderRemove(false))]
+        yield all([put(signUpFailure(e)), put(loaderRemove(false))])
     }
 }
 
@@ -68,9 +68,9 @@ export function* signInAfterSignUp({payload:{user, additionalData}}){
 export function* signOut(){
     try{
         yield auth.signOut();
-        yield all[put(signOutSuccess()), put(loaderRemove(false))];
+        yield all([put(signOutSuccess()), put(loaderRemove(false))]);
     }catch(e){
-        yield all[put(signOutFailure(e)), put(loaderRemove(false))];
+        yield all([put(signOutFailure(e)), put(loaderRemove(false))]);
     }
 }
 
@@ -80,7 +80,7 @@ export function* isUserAuthenticated(){
         if(!userAuth) return;
         yield getSnapshotFromUserAuth(userAuth);
     }catch(e){
-        yield put(signInFailure(e))
+        yield all([put(signInFailure(e)), put(loaderRemove(false))])
     }
 }
 
