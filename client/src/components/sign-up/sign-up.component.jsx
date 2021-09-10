@@ -6,8 +6,9 @@ import FormInput from '../form-input/form-input.component';
 import CustomButton from '../custom-button/custom-button.component';
 
 import {signUpStart} from '../../redux/user/user.actions';
+import {loaderStart} from '../../redux/globals/global.actions'
 
-const SignUp = ({emailSignUpStart,setLoading}) => {
+const SignUp = ({emailSignUpStart,startLoader}) => {
     const [userData, setUserData] = useState({
         displayName:'',
         email: '',
@@ -18,7 +19,7 @@ const SignUp = ({emailSignUpStart,setLoading}) => {
     const handleSubmit = async (event)=>{
         
         event.preventDefault();
-        setLoading(prev => !prev);
+        startLoader(true);
         
         if(password !== confirmPassword){
             alert('passwords do not match');
@@ -71,7 +72,8 @@ const SignUp = ({emailSignUpStart,setLoading}) => {
 }
 
 const mapDispatchToProps=(dispatch) => ({
-    emailSignUpStart: ({displayName, email, password}) => dispatch(signUpStart({displayName, email, password}))
+    emailSignUpStart: ({displayName, email, password}) => dispatch(signUpStart({displayName, email, password})),
+    startLoader:(loading)=>dispatch(loaderStart(loading))
 })
 
 

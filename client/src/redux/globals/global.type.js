@@ -1,0 +1,14 @@
+const globalActionTypes  = {
+    LOADER_START: "LOADER_START",
+    LOADER_MINI_START:"LOADER_MINI_START",
+    LOADER_MINI_REMOVE:"LOADER_MINI_REMOVE",
+    LOADER_REMOVE: "LOADER_REMOVE",
+    
+    CLEAR_GLOBAL_STATE: "CLEAR_GLOBAL_STATE"
+
+};
+
+
+
+
+export default globalActionTypes;

@@ -5,6 +5,9 @@ import userActionTypes from './user.types';
 
 import {signInSuccess, signInFailure, signOutFailure, signOutSuccess, signUpFailure, signUpSuccess} from './user.actions';
 
+
+import { loaderRemove, loaderMiniRemove } from '../globals/global.actions';
+
 import {auth, googleProvider, createUserProfileDocument, getCurrentUser} from '../../firebase/firebase.utils';
 
 
@@ -16,9 +19,9 @@ export function* getSnapshotFromUserAuth(userAuth, additionalData){
         
         const userSnapshot = yield userRef.get();
         //remember put() in saga replaces dispatch() in thunk
-        yield put(signInSuccess({id: userSnapshot.id, ...userSnapshot.data()}) ); 
+        yield all[put(signInSuccess({ id: userSnapshot.id, ...userSnapshot.data() })), put(loaderRemove(false))];
     } catch(e){
-        yield put(signInFailure(e));
+        yield all[put(signInFailure(e)), put(loaderRemove(false))];
     }    
     
 }
@@ -29,7 +32,7 @@ export function* signInWithGoogle(){
        const {user} = yield auth.signInWithPopup(googleProvider);
       yield getSnapshotFromUserAuth(user);
     } catch(e){
-       yield put(signInFailure(e))
+        yield all[put(signInFailure(e)), put(loaderRemove(false))]
     }
 }
 
@@ -40,7 +43,7 @@ export function* signInWithEmail({payload: {email, password}}){
 
         yield getSnapshotFromUserAuth(user);
     }   catch (e) {
-        yield put(signInFailure(e));
+        yield all[put(signInFailure(e)), put(loaderRemove(false))];
     }
 
 }
@@ -48,12 +51,12 @@ export function* signInWithEmail({payload: {email, password}}){
 export function* signUpWithEmail({payload:{displayName, email, password}}){
     try {
         const {user} = yield auth.createUserWithEmailAndPassword(email, password);
-        yield put(signUpSuccess({user, additionalData:{displayName}}));
+        yield all[put(signUpSuccess({ user, additionalData: { displayName } })), put(loaderRemove(false))];
         
         
 
     }catch(e){
-        yield put(signUpFailure(e))
+        yield all[put(signUpFailure(e)), put(loaderRemove(false))]
     }
 }
 
@@ -65,9 +68,9 @@ export function* signInAfterSignUp({payload:{user, additionalData}}){
 export function* signOut(){
     try{
         yield auth.signOut();
-        yield put(signOutSuccess());
+        yield all[put(signOutSuccess()), put(loaderRemove(false))];
     }catch(e){
-        yield put(signOutFailure(e));
+        yield all[put(signOutFailure(e)), put(loaderRemove(false))];
     }
 }
 
@@ -80,6 +83,11 @@ export function* isUserAuthenticated(){
         yield put(signInFailure(e))
     }
 }
+
+
+
+
+
 
 export function* onGoogleSignInStart(){
     yield takeLatest(userActionTypes.GOOGLE_SIGN_IN_START, signInWithGoogle)

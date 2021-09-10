@@ -5,14 +5,16 @@ import FormInput from '../form-input/form-input.component';
 import CustomButton from '../custom-button/custom-button.component';
 
 import {googleSignInStart, emailSignInStart} from '../../redux/user/user.actions';
-const SignIn =({signInEmail, signInGoogle,setLoading})=>{
+
+import {loaderStart} from '../../redux/globals/global.actions'
+const SignIn =({signInEmail, signInGoogle,startLoader})=>{
     
    const [userCredentials, setUserCredentials] = useState({email: '', password: ''}); 
 
    const {email, password} = userCredentials;
     const handleSubmit = async (event) => {
         event.preventDefault();
-        setLoading(prev => !prev);
+        startLoader(true);
         signInEmail(email, password);
 
     }
@@ -57,7 +59,8 @@ setUserCredentials({ ...userCredentials, [name]: value });
 
 const mapDispatchToProps =dispatch=>({
     signInGoogle: () => dispatch(googleSignInStart()),
-    signInEmail: (email, password) => dispatch(emailSignInStart({email,password}))
+    signInEmail: (email, password) => dispatch(emailSignInStart({email,password})),
+    startLoader:(loading)=>dispatch(loaderStart(loading))
 });
 
 export default connect(null, mapDispatchToProps)(SignIn);
